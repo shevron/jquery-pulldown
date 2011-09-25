@@ -27,8 +27,8 @@ The plugin expects the following HTML strcuture:
     </div>
 
 To be specific, you are expected to have a container element (usually a DIV) with two
-child elements: a <button> and a <ul>. The button will be used to display and hide the
-menu. The <ul> element, which may contain links, buttons, a form or any other HTML, 
+child elements: a "button" and a "ul". The button will be used to display and hide the
+menu. The "ul" element, which may contain links, buttons, a form or any other HTML, 
 will be hidden and only displayed when the menu is activated using the button. 
 
 To create a pulldown menu out of the above structure, add the following code to your

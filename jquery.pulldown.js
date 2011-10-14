@@ -9,26 +9,39 @@
  **/ 
 
 (function($){
-	$.fn.pulldown = function(options) {
-		
+	$.fn.pulldown = function(options) 
+	{
 		var defaults = {  
 			pulledClass:    'pulled',
 			hideOnMouseOut: true,
 			easing:         'swing',
+			content:        null
 		};
-		var options = $.extend(defaults, options);
+		
+		options = $.extend(defaults, options);
 		
 		return this.each(function() {
 			var container = $(this);
 			var handle = $('button', this);
-			var menu = $('ul', this);
+			var menu;
+			
+			if (options.content) {
+				menu = $(options.content);
+			} else {
+				menu = handle.next();
+			}
 			
 			menu.hide();
 			
 			handle.click(function() {
-				menu.toggle(options.easing, function(){
+				if (options.easing) {
+					menu.toggle(options.easing, function(){
+						container.toggleClass(options.pulledClass);
+					});
+				} else {
+					menu.toggle();
 					container.toggleClass(options.pulledClass);
-				});
+				}
 			});
 			
 			if (options.hideOnMouseOut) {

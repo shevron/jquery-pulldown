@@ -22,7 +22,7 @@
 		
 		return this.each(function() {
 			var container = $(this);
-			var handle = $('button', this);
+			var handle = $('> button', this);
 			var menu;
 			
 			if (options.content) {
